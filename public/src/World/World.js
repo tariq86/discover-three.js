@@ -1,7 +1,7 @@
 import { Camera } from './components/Camera.js';
 import { Cone } from './components/Cone.js';
 import { Cube } from './components/Cube.js';
-import { createScene } from './components/scene.js';
+import { Scene } from './components/Scene.js';
 import { Light } from './components/Light.js';
 
 import { Renderer } from './systems/Renderer.js';
@@ -18,7 +18,7 @@ class World {
         console.log('World->constructor()');
         camera = new Camera();
         renderer = new Renderer().renderer;
-        scene = createScene();
+        scene = new Scene().scene;
         loop = new Loop(camera.camera, scene, renderer);
         // loop.updatables.push(camera);
         container.append(renderer.domElement);
