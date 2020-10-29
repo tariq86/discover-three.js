@@ -1,7 +1,7 @@
 import { ConeBufferGeometry, Mesh, MeshStandardMaterial } from 'https://unpkg.com/three@0.121.1/build/three.module.js';
 
 class Cone {
-    constructor(radius = 0.5, height = 1.5, radialSegments = 20, meshProps = { color: 0xffffff }) {
+    constructor(radius = 0.5, height = 1, radialSegments = 64, meshProps = { color: 0xffffff }) {
         // create a geometry
         this.geometry = new ConeBufferGeometry(radius, height, radialSegments);
 

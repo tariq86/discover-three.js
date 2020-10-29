@@ -1,5 +1,5 @@
 import {
-    BoxBufferGeometry,
+    TorusBufferGeometry,
     MathUtils,
     Mesh,
     MeshStandardMaterial,
@@ -8,10 +8,10 @@ import {
 
 const radiansPerSecond = MathUtils.degToRad(30);
 
-class Cube {
-    constructor(width = 1, height = 1, depth = 1, texture = 'uv-test-bw.png') {
+class Torus {
+    constructor(radius = 1, tube = 0.4, radialSegments = 8, tubularSegments = 6, texture = 'uv-test-bw.png') {
         // create a geometry
-        this.geometry = new BoxBufferGeometry(width, height, depth);
+        this.geometry = new TorusBufferGeometry(radius, tube, radialSegments, tubularSegments);
 
         // set the mesh material
         this.setTexture(texture);
@@ -23,6 +23,7 @@ class Cube {
     setTexture(imageName) {
         const textureLoader = new TextureLoader();
         const texture = textureLoader.load(`/assets/textures/${imageName}`);
+        console.log('texture: ', texture);
         this.material = new MeshStandardMaterial({ map: texture });
     }
 
@@ -41,4 +42,4 @@ class Cube {
     }
 }
 
-export { Cube };
+export { Torus };
